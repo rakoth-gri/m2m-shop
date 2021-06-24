@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+    font-size: 20px;
+    font-family: 'Geometria';
+}
+
+
+/******** LOCALSTORAGE_2.js (CART) *************/
+
+.out {
+    background-color: #ffb;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    width: 70%;
+    justify-content: flex-end;
+    flex-wrap: wrap
+}
+
+.out .model {
+    width: 34%
+}
+
+.out .store,
+.out .model,
+.out .price,
+.out .summOfModel,
+.out .itogo,
+.out .del,
+.out .all,
+.action {
+    background-color: #ffd;
+    padding: 10px;
+    margin: 5px 7px;
+    font-weight: 500;
+    text-align: left;
+    border-bottom: 1px solid #ffd;
+    outline: none;
+}
+
+.out .summOfModel,
+.out .price {
+    width: 20%
+}
+
+.out .store,
+.out .itogo {
+    width: 10%;
+    text-align: center
+}
+
+.out .del,
+.action {
+    display: block;
+    border: none;
+    width: 10%;
+    text-align: center;
+    background: rgb(218, 61, 61);
+    opacity: 0.75;
+    border-radius: 10px;
+    transition: 0.4s all;
+}
+
+.out .del:hover {
+    background: none;
+    color: red;
+}
+
+.out .all {
+    width: 20%;
+    font-weight: bold;
+    font-size: 22px;
+    color: brown;
+}
+
+.out .itogo {
+    font-weight: bold;
+    font-size: 22px;
+}

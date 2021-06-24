@@ -1,0 +1,206 @@
+/* Общие */
+
+* {
+    box-sizing: border-box;
+    font-size: 20px;
+    font-family: 'Geometria';
+    outline: none;
+}
+
+
+/* МАРКЕРЫ */
+
+
+/* .text {
+    padding: 5px;
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+body .next {
+    position: fixed;
+    right: 2%;
+    bottom: 2%;
+    border: none;
+    background-color: #fabd;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    outline: none;
+}
+
+body {
+    text-align: left;
+}
+
+
+/* отключаем обводку у summary */
+
+
+/* .sum {
+    outline: none;
+    border: 0px;
+    color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer
+}
+
+.sum::-webkit-details-marker {
+    display: none;
+} */
+
+
+/* убираем маркер по-умолчанию */
+
+.sum::before {
+    content: '';
+    background: url('./icon.svg');
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s all linear
+}
+
+details[open] .sum::before {
+    transform: rotate(90deg);
+}
+
+
+/******** LOCALSTORAGE.js (MAIN) *************/
+
+
+/* корзинка */
+
+.cartpage {
+    width: 4%;
+    position: absolute;
+    right: 1%;
+    top: 2%;
+    text-align: center;
+    border: 1px solid #ffb;
+    height: auto;
+    border-radius: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-decoration: none;
+}
+
+.cartpage__active {
+    box-shadow: 3px 3px 7px #b82020;
+}
+
+img.cart {
+    width: 30%;
+    margin: auto;
+    vertical-align: middle;
+    transform: 0.4s all;
+}
+
+img.cart:hover {
+    transform: scale(1.5) rotateZ(20deg);
+}
+
+span.cartSum {
+    color: #b82020;
+    font-size: 24px
+}
+
+
+/* каталог карточек */
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 32%);
+    grid-gap: 2%;
+    justify-items: center;
+    margin: 50px auto;
+    width: 85%;
+    grid-auto-rows: auto;
+}
+
+.card {
+    width: 65%;
+    padding: 2%;
+    border: 1px;
+    justify-self: center;
+    align-self: center;
+    border: 2px solid #ffd;
+    border-radius: 2%;
+    box-shadow: 2px 5px 5px rgb(214, 169, 169);
+}
+
+.card .pict {
+    width: 90%;
+    margin: 5px auto;
+    display: block;
+    height: auto;
+    object-fit: cover;
+}
+
+.card .model {
+    width: 90%;
+    text-align: center;
+    background-color: #ffd;
+    margin: 10px auto;
+    font-style: normal;
+}
+
+.card .model .id {
+    width: 30%;
+    text-align: center;
+    background-color: #faa;
+    display: inline-block;
+    text-align: center
+}
+
+.card .controll,
+.card .price {
+    width: 49%;
+    text-align: center;
+    padding: 2%;
+    border: 1px solid rgb(177, 177, 170);
+    border-radius: 5%;
+    box-shadow: 2px 5px 5px rgb(214, 169, 169);
+    display: inline-block
+}
+
+.card .controll .plus,
+.card .controll .minus {
+    padding: 0 5px;
+    width: 15%;
+    display: inline-block;
+    font-size: 20px;
+    transition: 0.4s all
+}
+
+.card .controll .plus:hover,
+.card .controll .minus:hover {
+    transform: scale(1.8);
+    color: rgb(218, 61, 61);
+}
+
+.card .controll .amount {
+    padding: 0 5px;
+    width: 50%;
+    display: inline-block;
+    color: rgb(69, 133, 228)
+}
+
+.card .store {
+    margin: 2% 0;
+    text-align: center;
+    padding: 2%;
+    border-radius: 3px;
+    box-shadow: 2px 5px 5px rgb(214, 169, 169);
+}
+
+.card .store span {
+    font-weight: 600;
+    color: rgb(218, 61, 61);
+}
