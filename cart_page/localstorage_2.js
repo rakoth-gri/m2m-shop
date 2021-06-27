@@ -1,4 +1,4 @@
-import { data } from '../constant/data.js';
+import { data2 } from '../data/data.js';
 const out = document.querySelector('.out');
 
 
@@ -21,9 +21,9 @@ class Cart {
         let result = this.getLS();
 
         out.innerHTML = `<div class="model"> Наименование изделия </div>
-            <div class="price"> Цена, USD / шт. </div>
+            <div class="price"> Цена, в руб. / шт. </div>
             <div class="store"> Кол-во </div>
-            <div class="summOfModel"> Всего, USD / шт. </div>
+            <div class="summOfModel"> Всего, руб. / шт. </div>
             <div class="action"> Действие </div>`;
 
         for (let key in result) {
@@ -35,9 +35,9 @@ class Cart {
 
                 out.innerHTML += `                    
                     <div class="model">${model}</div>
-                    <div class="price"><span>${price}</span> USD </div>
+                    <div class="price"><span>${price.toLocaleString()}</span> &#8381; </div>
                     <div class="store">${store}</div>
-                    <div class="summOfModel"><span>${(price*store).toFixed(2)}</span> </div>
+                    <div class="summOfModel"><span>${(price*store)}</span> &#8381; </div>
                     <button class="del" data-del="${key}"> Удалить </button>                     
                 `;
             }
@@ -62,7 +62,7 @@ class Cart {
                 let attr = i.dataset.del;
                 delete result[attr];
                 localStorage.setItem(this.LSname, JSON.stringify(result));
-                this.render(data);
+                this.render(data2);
             });
         }
 
@@ -70,12 +70,13 @@ class Cart {
 
     sumGoods(summa, all) {
         let summa_arr = [...summa];
-        all.innerHTML = summa_arr.reduce((acc, i) => acc += +i.textContent, 0).toFixed(2) + "  $";
+        console.log(summa_arr);
+        all.innerHTML = summa_arr.reduce((acc, i) => acc += +i.textContent, 0).toLocaleString() + " &#8381;";
     }
 }
 
 const cart = new Cart();
-cart.render(data);
+cart.render(data2);
 
 
 

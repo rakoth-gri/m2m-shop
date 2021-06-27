@@ -1,8 +1,5 @@
 // ************ APPLICATION на ES6 - КЛАССЫ ******************
 
-import { data2 } from "../data/data.js";
-import { template_ID } from "../utils/template_ID.js";
-
 const wrapper = document.querySelector('.wrapper'),
     cartPage = document.querySelector('.cartpage'),
     cartSum = document.querySelector('.cartSum');
@@ -25,11 +22,12 @@ class Storage {
         return {};
     }
 
-    setInLS(attr, ind, storeVal) {
+    setInLS(attr, ind, storeVal, amount) {
 
         let result = this.getLS();
 
-        (result[attr] && result[attr] < storeVal) ? result[attr]++: result[attr] = 1;
+        let num = result[attr];
+        (num && num < storeVal) ? result[attr]++: result[attr] = 1;
 
         cartPage.classList.add('cartpage__active');
 
@@ -40,10 +38,12 @@ class Storage {
         this.recordLS(result);
     }
 
-    deleteFromLS(attr, ind) {
+    deleteFromLS(attr, ind, amount) {
         let result = this.getLS();
 
-        result[attr] > 1 ? result[attr]-- : delete result[attr];
+        let num = result[attr];
+
+        num > 1 ? result[attr]-- : delete result[attr];
 
         amount[ind].textContent = result[attr];
 
@@ -61,7 +61,7 @@ class Storage {
             a;
 
         Object.values(result).length ? cartPage.classList.add('cartpage__active') : cartPage.classList.remove('cartpage__active');
-        // сохранение активного класса корзины при перезагрузке
+        // проверка на длину нового массива, сотворенного из объетка result
 
         cartSum.textContent = Object.keys(result).length;
         // сохранение товаров в корзине при перезагрузке
@@ -75,8 +75,8 @@ class Storage {
             let card = `
             <div class="card">
                 <div class="model"> ${i.model}</div>
-                <a href='../template/template.html' alt="good-link"  ><img class="pict" src="${i.pict}" data-id="${key}"></img></a>                
-                <div class="price"> <span class="usd">${i.price.toLocaleString()}</span> &#8381; </div>
+                <img class="pict" src="${i.pict}"></img>                
+                <div class="price"> <span class="usd">${i.price}</span> $ </div>
                 <div class="controll"> <span class="plus" data-id="${key}"> + </span> 
                 <span class="amount" > ${a} </span>  <span class="minus" data-id="${key}"> - </span> 
                 </div>
@@ -87,21 +87,22 @@ class Storage {
         wrapper.innerHTML = str;
     }
 
-    plusEvent() {
+    plusEvent(plus, amount) {
+        let store = document.querySelectorAll(".store span");
         plus.forEach((el, ind) => {
             let storeVal = +store[ind].innerHTML,
                 attr = el.getAttribute('data-id');
             el.addEventListener('click', () => {
-                this.setInLS(attr, ind, storeVal);
+                this.setInLS(attr, ind, storeVal, amount);
             });
         });
     }
 
-    minusEvent() {
+    minusEvent(minus, amount) {
         minus.forEach((el, ind) => {
             el.addEventListener('click', () => {
                 let attr = el.getAttribute('data-id');
-                this.deleteFromLS(attr, ind);
+                this.deleteFromLS(attr, ind, amount);
             });
         });
     }
@@ -112,19 +113,19 @@ class Storage {
 }
 
 const storage = new Storage();
-storage.render(data2);
 
-// DOM-elements-constants
-const plus = document.querySelectorAll('.plus'),
-    minus = document.querySelectorAll('.minus'),
-    amount = document.querySelectorAll('.amount'),
-    store = document.querySelectorAll(".store span"),
-    pict = document.querySelectorAll(".pict");
+async function getInfo() {
+    let p = await fetch('https://gist.githubusercontent.com/rakoth-gri/aff357d5d9974bb0d74f2dec85c0a38c/raw/5278b37e30a7c222abc94a69e7a1bdcfa03e5426/BASE.json');
+    let resp = await p.json();
+    storage.render(resp);
 
-template_ID(pict);
+    const plus = document.querySelectorAll('.plus'),
+        minus = document.querySelectorAll('.minus'),
+        amount = document.querySelectorAll('.amount');
 
-// событие плюс
-storage.plusEvent();
+    storage.plusEvent(plus, amount);
+    storage.minusEvent(minus, amount);
 
-// событие минус
-storage.minusEvent();
+}
+
+getInfo();
