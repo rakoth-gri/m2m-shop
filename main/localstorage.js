@@ -3,7 +3,7 @@
 import { data2 } from "../data/data.js";
 import { template_ID } from "../utils/template_ID.js";
 
-const wrapper = document.querySelector('.wrapper'),
+const root = document.querySelector('.root'),
     cartPage = document.querySelector('.cartpage'),
     cartSum = document.querySelector('.cartSum');
 
@@ -84,7 +84,7 @@ class Storage {
             </div>`;
             str += card;
         }
-        wrapper.innerHTML = str;
+        root.innerHTML = str;
     }
 
     plusEvent() {

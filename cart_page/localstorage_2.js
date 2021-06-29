@@ -1,5 +1,5 @@
 import { data2 } from '../data/data.js';
-const out = document.querySelector('.out');
+const root = document.querySelector('.root');
 
 
 class Cart {
@@ -20,7 +20,7 @@ class Cart {
 
         let result = this.getLS();
 
-        out.innerHTML = `<div class="model"> Наименование изделия </div>
+        root.innerHTML = `<div class="model"> Наименование изделия </div>
             <div class="price"> Цена, в руб. / шт. </div>
             <div class="store"> Кол-во </div>
             <div class="summOfModel"> Всего, руб. / шт. </div>
@@ -32,8 +32,7 @@ class Cart {
                     model = data[key].model,
                     price = data[key].price;
 
-
-                out.innerHTML += `                    
+                root.innerHTML += `                    
                     <div class="model">${model}</div>
                     <div class="price"><span>${price.toLocaleString()}</span> &#8381; </div>
                     <div class="store">${store}</div>
@@ -43,7 +42,7 @@ class Cart {
             }
         }
 
-        out.innerHTML += "<div class='itogo'>ИТОГО:</div><div class='all'></div>";
+        root.innerHTML += "<div class='itogo'>ИТОГО:</div><div class='all'></div>";
 
         let all = document.querySelector('.all'),
             del = document.querySelectorAll('.del'),
