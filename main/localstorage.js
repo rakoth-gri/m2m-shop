@@ -41,6 +41,7 @@ class Storage {
     }
 
     deleteFromLS(attr, ind) {
+
         let result = this.getLS();
 
         result[attr] > 1 ? result[attr]-- : delete result[attr];

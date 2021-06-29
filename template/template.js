@@ -51,7 +51,8 @@ class Template {
 
         container.innerHTML += str;
 
-        if (data.specification2.split(';')) {
+        if (data.specification2) {
+
             container.innerHTML += `<h2 class="title"> Другие характеристики </h2>`;
             const mass2 = data.specification2.split(';');
             mass2.map(item => {

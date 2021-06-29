@@ -114,7 +114,7 @@ span.cartSum {
 
 /* каталог карточек */
 
-.wrapper {
+.root {
     display: grid;
     grid-template-columns: repeat(auto-fit, 32%);
     grid-gap: 2%;
