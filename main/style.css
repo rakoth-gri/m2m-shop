@@ -134,11 +134,15 @@ span.cartSum {
 }
 
 .card .pict {
-    width: 100%;
+    width: 85%;
     margin: 5px auto;
     display: block;
-    height: auto;
-    object-fit: contain;
+    object-fit: cover;
+    transition: 0.4s transform;
+}
+
+.card .pict:hover {
+    transform: rotateZ(5deg) scale(1.1);
 }
 
 .card .model {
@@ -174,7 +178,8 @@ span.cartSum {
     width: 15%;
     display: inline-block;
     font-size: 20px;
-    transition: 0.4s all
+    transition: 0.4s all;
+    cursor: pointer;
 }
 
 .card .controll .plus:hover,

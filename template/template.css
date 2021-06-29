@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Geometria';
+    font-size: 20px;
+}
+
+.good_desc {
+    width: 60%;
+    margin: 50px auto;
+    padding: 2%
+}
+
+.model {
+    font-size: 28px;
+    display: block;
+    margin: 20px 0;
+}
+
+.store {
+    font-size: 22px;
+    width: 50%;
+}
+
+.store span {
+    color: rgb(218, 61, 61)
+}
+
+.pict {
+    width: 40%;
+    float: left;
+    object-fit: cover;
+    margin-bottom: 2.5%;
+}
+
+.price {
+    font-size: 22px;
+    display: block;
+    position: relative;
+    top: -28px;
+    font-weight: 700;
+    text-align: right;
+}
+
+.price span {
+    font-size: 24px;
+    color: rgb(218, 61, 61)
+}
+
+.desc {
+    margin: 15px;
+    text-align: justify;
+    color: rgb(112, 110, 107);
+}
+
+.title {
+    font-size: 28px;
+    color: rgb(218, 61, 61);
+    margin: 15px 0;
+    clear: both;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.specification {
+    text-align: justify;
+    color: rgb(112, 110, 107);
+    text-align: justify;
+    margin: 5px auto;
+}
+
+.specification:first-letter {
+    text-transform: uppercase;
+    font-size: 22px;
+    color: rgb(218, 61, 61);
+}

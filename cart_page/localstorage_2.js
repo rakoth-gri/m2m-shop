@@ -37,7 +37,7 @@ class Cart {
                     <div class="model">${model}</div>
                     <div class="price"><span>${price.toLocaleString()}</span> &#8381; </div>
                     <div class="store">${store}</div>
-                    <div class="summOfModel"><span>${(price*store)}</span> &#8381; </div>
+                    <div class="summOfModel"><span> ${(price*store).toLocaleString()} </span> &#8381; </div>
                     <button class="del" data-del="${key}"> Удалить </button>                     
                 `;
             }
@@ -70,8 +70,7 @@ class Cart {
 
     sumGoods(summa, all) {
         let summa_arr = [...summa];
-        console.log(summa_arr);
-        all.innerHTML = summa_arr.reduce((acc, i) => acc += +i.textContent, 0).toLocaleString() + " &#8381;";
+        all.innerHTML = summa_arr.reduce((acc, i) => acc += +i.textContent.replace(/\s/g, ""), 0).toLocaleString() + " &#8381;";
     }
 }
 
