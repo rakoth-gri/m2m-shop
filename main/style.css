@@ -1,4 +1,4 @@
-/* Общие */
+/************ Общие ******************/
 
 * {
     box-sizing: border-box;
@@ -8,73 +8,93 @@
 }
 
 
-/* МАРКЕРЫ */
+/*************** Компонент фильтра **************/
 
-
-/* .text {
-    padding: 5px;
-    width: 1200px;
-    margin: 0 auto;
-    position: relative;
+.form {
+    width: 20%;
+    margin-top: 10px;
+    float: left;
+    text-align: center;
 }
 
-body .next {
-    position: fixed;
-    right: 2%;
-    bottom: 2%;
-    border: none;
-    background-color: #fabd;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    outline: none;
+.form fieldset {
+    border: 1px solid rgb(177, 177, 170);
+    border-radius: 4%;
+    box-shadow: 2px 5px 9px rgb(214, 169, 169);
 }
 
-body {
-    text-align: left;
-}
-
-
-/* отключаем обводку у summary */
-
-
-/* .sum {
-    outline: none;
-    border: 0px;
-    color: red;
+.form fieldset label {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: center;
-    cursor: pointer
+    margin-bottom: 5%
 }
 
-.sum::-webkit-details-marker {
-    display: none;
-} */
-
-
-/* убираем маркер по-умолчанию */
-
-.sum::before {
-    content: '';
-    background: url('./icon.svg');
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    position: relative;
-    cursor: pointer;
-    transition: 0.3s all linear
-}
-
-details[open] .sum::before {
-    transform: rotate(90deg);
+.form fieldset input {
+    margin-right: 2%;
+    border: 1px solid rgb(177, 177, 170);
+    border-radius: 4%;
+    box-shadow: 2px 5px 5px rgb(214, 169, 169);
+    outline: none
 }
 
 
-/******** LOCALSTORAGE.js (MAIN) *************/
+/* input Number */
+
+.form .priceInp {
+    width: 50%;
+}
+
+.form .priceInp::placeholder {
+    padding: 3%;
+    transition: 0.6s all;
+    color: rgba(0, 0, 0, .6)
+}
+
+.form .priceInp:focus::placeholder {
+    opacity: .1;
+    transform: scale(0);
+}
 
 
-/* корзинка */
+/* input Range */
+
+.form .priceRange {
+    width: 50%;
+    background-color: none;
+    box-shadow: none
+}
+
+span.range-wrap {
+    width: 40%;
+    margin-left: 3%;
+    text-align: left;
+    color: rgb(218, 61, 61)
+}
+
+
+/* Button */
+
+#start {
+    margin: 3% 0;
+    display: block;
+    width: 25%;
+    outline: none;
+    border: none;
+    background-color: rgb(214, 169, 169);
+    box-shadow: 2px 5px 5px rgb(214, 169, 169);
+    transition: 0.4s all;
+}
+
+#start:hover {
+    transform: scale(1.2);
+    color: rgb(218, 61, 61);
+    background-color: rgb(224, 218, 218);
+    margin-left: 3%
+}
+
+
+/********** корзина *******************/
 
 .cartpage {
     width: 4%;
@@ -112,15 +132,15 @@ span.cartSum {
 }
 
 
-/* каталог карточек */
+/******** компонент карточек *****************/
 
 .root {
     display: grid;
     grid-template-columns: repeat(auto-fit, 32%);
     grid-gap: 2%;
     justify-items: center;
-    margin: 50px auto;
-    width: 85%;
+    margin: 100px 20px;
+    width: 75%;
     grid-auto-rows: auto;
 }
 

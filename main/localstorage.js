@@ -2,11 +2,23 @@
 
 import { data2 } from "../data/data.js";
 import { template_ID } from "../utils/template_ID.js";
+import { Max, Min, Price, rangeValue } from "../utils/filter.js";
 
 const root = document.querySelector('.root'),
     cartPage = document.querySelector('.cartpage'),
-    cartSum = document.querySelector('.cartSum');
+    cartSum = document.querySelector('.cartSum'),
+    checkboxMin = document.querySelector('.min'),
+    checkboxMax = document.querySelector('.max'),
+    inputPrice = document.querySelector('.priceInp'),
+    inputRange = document.querySelector('.priceRange'),
+    rangeWrap = document.querySelector('.range-wrap'),
+    button = document.querySelector('#start');
 
+let data3 = Min(data2);
+// data отфильтрована по убыванию 
+
+let data4 = Max(data2);
+// data отфильтрована по возрастанию
 
 
 class Storage {
@@ -35,7 +47,7 @@ class Storage {
 
         amount[ind].textContent = result[attr];
 
-        cartSum.textContent = Object.keys(result).length;
+        cartSum.textContent = Object.values(result).reduce((acc, i) => acc += i, 0);
 
         this.recordLS(result);
     }
@@ -48,7 +60,7 @@ class Storage {
 
         amount[ind].textContent = result[attr];
 
-        cartSum.textContent = Object.keys(result).length;
+        cartSum.textContent = Object.values(result).reduce((acc, i) => acc += i, 0);
 
         Object.values(result).length ? cartPage.classList.add('cartpage__active') : cartPage.classList.remove('cartpage__active');
 
@@ -64,8 +76,9 @@ class Storage {
         Object.values(result).length ? cartPage.classList.add('cartpage__active') : cartPage.classList.remove('cartpage__active');
         // сохранение активного класса корзины при перезагрузке
 
-        cartSum.textContent = Object.keys(result).length;
+        cartSum.textContent = Object.values(result).reduce((acc, i) => acc += i, 0);
         // сохранение товаров в корзине при перезагрузке
+
 
         for (let key in mass) {
             let i = mass[key];
@@ -115,12 +128,16 @@ class Storage {
 const storage = new Storage();
 storage.render(data2);
 
+// фильтрация по возрастанию
+Max(data2, button, checkboxMax);
+
 // DOM-elements-constants
 const plus = document.querySelectorAll('.plus'),
     minus = document.querySelectorAll('.minus'),
     amount = document.querySelectorAll('.amount'),
     store = document.querySelectorAll(".store span"),
     pict = document.querySelectorAll(".pict");
+
 
 template_ID(pict);
 
@@ -129,3 +146,30 @@ storage.plusEvent();
 
 // событие минус
 storage.minusEvent();
+
+
+// ********** Функции фильтра **********
+
+// *******запись значений в inputRange********
+rangeValue(inputPrice, inputRange, rangeWrap);
+
+
+// *****основная функция фильтра*************
+button.addEventListener('click', function(e) {
+
+    e.preventDefault();
+    let val1 = inputPrice.value;
+
+    if (checkboxMin.checked && !checkboxMax.checked) {
+        storage.render(data3);
+    } else if (checkboxMax.checked && !checkboxMin.checked) {
+        storage.render(data4);
+    } else if (val1) {
+        let price = Price(data2, val1);
+        storage.render(price);
+    } else {
+        storage.render(data2);
+    }
+});
+
+//

@@ -20,7 +20,9 @@ class Cart {
 
         let result = this.getLS();
 
-        root.innerHTML = `<div class="model"> Наименование изделия </div>
+        root.innerHTML = `
+            <a href='./index.html' alt="main" class="main"> <img  src="./icons/back.png"></img> ГЛАВНАЯ </a>            
+            <div class="model"> Наименование изделия </div>
             <div class="price"> Цена, в руб. / шт. </div>
             <div class="store"> Кол-во </div>
             <div class="summOfModel"> Всего, руб. / шт. </div>

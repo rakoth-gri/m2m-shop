@@ -8,13 +8,27 @@
     <title> MAIN </title>
     <link rel="stylesheet" type="text/css" href="./main/style.css">
     <link rel="stylesheet" type="text/css" href="./fonts/fonts.css">
+    <link rel="shortcut icon" href="/icons/router.svg" type="image/x-icon">
 </head>
 
 <body>
     <a href="cart_page.html" class="cartpage">
-        <img class="cart" src="cart.svg" alt="cart">
+        <img class="cart" src="./icons/cart.svg" alt="cart">
         <span class="cartSum"> </span>
     </a>
+    <form class="form">
+        <fieldset>
+            <legend> Фильтр </legend>
+            <label> <input type="checkbox" class="min"> По наибольшей цене </label>
+            <label> <input type="checkbox" class="max"> По наименьшей цене </label>
+            <label class="priceVal"> <input type="number" class="priceInp" placeholder="цена, в руб." min="0"  max="100000" step="50"> </label>
+            <label class="priceVal"> <input type="range" class="priceRange" min="0" max="100000" step="50" value="0"> <span class="range-wrap"> </span> 
+            </label>
+            <button id="start">СТАРТ</button>
+
+        </fieldset>
+    </form>
+
 
     <div class="root"> </div>
 

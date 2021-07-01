@@ -14,7 +14,32 @@
     display: flex;
     width: 70%;
     justify-content: flex-end;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.main {
+    display: flex;
+    width: 100%;
+    margin: 10px;
+    text-decoration: none;
+    color: inherit;
+    align-items: center;
+    color: rgb(218, 61, 61);
+    font-weight: 500;
+    font-style: italic;
+    transition: 0.4s all
+}
+
+.main:hover {
+    color: rgba(0, 0, 0, .7);
+    font-style: normal;
+}
+
+.main img {
+    width: 25px;
+    height: auto;
+    margin: 10px
 }
 
 .model {
