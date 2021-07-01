@@ -2,13 +2,14 @@
 
 import { data2 } from "../data/data.js";
 import { template_ID } from "../utils/template_ID.js";
-import { Max, Min, Price, rangeValue } from "../utils/filter.js";
+import { Max, Min, Price, rangeValue, RatingReview } from "../utils/filter.js";
 
 const root = document.querySelector('.root'),
     cartPage = document.querySelector('.cartpage'),
     cartSum = document.querySelector('.cartSum'),
     checkboxMin = document.querySelector('.min'),
     checkboxMax = document.querySelector('.max'),
+    checkboxRating = document.querySelector('.Rating'),
     inputPrice = document.querySelector('.priceInp'),
     inputRange = document.querySelector('.priceRange'),
     rangeWrap = document.querySelector('.range-wrap'),
@@ -19,6 +20,9 @@ let data3 = Min(data2);
 
 let data4 = Max(data2);
 // data отфильтрована по возрастанию
+
+let data5 = RatingReview(data2);
+// data отфильтрована по рейтингу
 
 
 class Storage {
@@ -164,6 +168,8 @@ button.addEventListener('click', function(e) {
         storage.render(data3);
     } else if (checkboxMax.checked && !checkboxMin.checked) {
         storage.render(data4);
+    } else if (checkboxRating.checked && !checkboxMin.checked && !checkboxMax.checked) {
+        storage.render(data5);
     } else if (val1) {
         let price = Price(data2, val1);
         storage.render(price);

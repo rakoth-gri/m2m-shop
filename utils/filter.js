@@ -38,7 +38,6 @@ export function Price(data, value) {
 }
 
 // отображение range Value in DOM-tree
-
 export function rangeValue(input, range, root) {
 
     input.oninput = () => {
@@ -46,4 +45,17 @@ export function rangeValue(input, range, root) {
         range.value = value;
         rangeValue ? root.innerHTML = value.toLocaleString() + " &#8381;" : root.textContent = ``;
     };
+}
+
+// фильтр по рейтингу
+export function RatingReview(data, value) {
+    let newData = {};
+    let mass = Object.entries(data).sort(((a, b) => b[1].ratingReview - a[1].ratingReview));
+    // фильтруем массив по цене
+
+    // создаем новый объект
+    for (let i of mass) {
+        newData[i[0]] = i[1];
+    }
+    return newData;
 }
