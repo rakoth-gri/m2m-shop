@@ -102,3 +102,156 @@
     font-weight: bold;
     font-size: 22px;
 }
+
+@media screen and (min-width: 1200px) {
+    .root {
+        width: 89%;
+        font-size: 19px;
+    }
+    .model {
+        width: 30%;
+        font-size: inherit;
+    }
+    .summOfModel,
+    .price {
+        width: 19%;
+        font-size: inherit;
+    }
+    .del,
+    .action {
+        width: 14%;
+        font-size: inherit;
+    }
+    .itogo,
+    .all {
+        font-size: inherit;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199.99px) {
+    .root {
+        width: 92%;
+        font-size: 17px;
+    }
+    .model {
+        width: 30%;
+        font-size: inherit;
+        padding: 5px
+    }
+    .summOfModel,
+    .price {
+        width: 18%;
+        font-size: inherit;
+        padding: 5px
+    }
+    .del,
+    .action {
+        width: 14%;
+        font-size: inherit;
+        padding: 5px
+    }
+    .itogo,
+    .all,
+    .store {
+        font-size: inherit;
+        padding: 5px
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991.99px) {
+    .root {
+        width: 98%;
+        font-size: 17px;
+    }
+    .model {
+        width: 30%;
+        font-size: inherit;
+        padding: 5px
+    }
+    .summOfModel,
+    .price {
+        width: 18%;
+        font-size: inherit;
+        padding: 5px
+    }
+    .del,
+    .action {
+        width: 14%;
+        font-size: inherit;
+        padding: 5px
+    }
+    .itogo,
+    .all,
+    .store {
+        font-size: inherit;
+        padding: 5px
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767.99px) {
+    .root {
+        width: 97%;
+        font-size: 17px;
+    }
+    .model {
+        width: 30%;
+        font-size: inherit;
+        padding: 5px
+    }
+    .summOfModel,
+    .price {
+        width: 18%;
+        font-size: inherit;
+        padding: 5px
+    }
+    .del,
+    .action {
+        width: 14%;
+        font-size: inherit;
+        padding: 5px
+    }
+    .itogo,
+    .all,
+    .store {
+        font-size: inherit;
+        padding: 5px
+    }
+    div.root div.price span,
+    div.root div.summOfModel span {
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 575.99px) {
+    .root {
+        width: 100%;
+        font-size: 17px;
+    }
+    .model {
+        width: 30%;
+        font-size: inherit;
+        padding: 5px
+    }
+    .summOfModel,
+    .price {
+        width: 18%;
+        font-size: inherit;
+        padding: 5px
+    }
+    .del,
+    .action {
+        width: 14%;
+        font-size: inherit;
+        padding: 5px
+    }
+    .itogo,
+    .all,
+    .store {
+        font-size: inherit;
+        padding: 5px
+    }
+    div.root div.price span,
+    div.root div.summOfModel span {
+        font-size: 17px;
+    }
+}
