@@ -1,4 +1,4 @@
-import { data2 } from '../data/data.js';
+import { data2 } from '../constant/constants.js';
 
 class Template {
 

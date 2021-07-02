@@ -1,3 +1,7 @@
+import { data2, checkboxMin, checkboxMax, checkboxRating } from "../constant/constants.js";
+import { storage } from "../main/main.js";
+
+
 // сортировка по убыванию
 export function Min(data) {
     let newData = {};
@@ -27,7 +31,7 @@ export function Max(data) {
 // фильтр по цене
 export function Price(data, value) {
     let newData = {};
-    let mass = Object.entries(data).filter(i => i[1].price == value || Math.round(i[1].price / 1000) * 1000 === Math.round(value / 1000) * 1000);
+    let mass = Object.entries(data).filter(i => Math.round(i[1].price / 1000) * 1000 === Math.round(value / 1000) * 1000);
     // фильтруем массив по цене
 
     // создаем новый объект
@@ -37,7 +41,7 @@ export function Price(data, value) {
     return newData;
 }
 
-// отображение range Value in DOM-tree
+// отображение RangeValue в DOM-element
 export function rangeValue(input, range, root) {
 
     input.oninput = () => {
@@ -59,3 +63,38 @@ export function RatingReview(data, value) {
     }
     return newData;
 }
+
+
+// фильтр по типу оборудования
+export function Type(data, value) {
+    let newData = {};
+
+    let mass = Object.entries(data).filter(i => i[1].model.includes(value));
+    // фильтруем массив по цене
+
+    // создаем новый объект
+    for (let i of mass) {
+        newData[i[0]] = i[1];
+    }
+    return newData;
+}
+
+// основной код фильтра
+export const filter = (val1, data) => {
+    let min = Min(data),
+        max = Max(data),
+        ratingReview = RatingReview(data);
+
+    if (checkboxMin.checked && !checkboxMax.checked) {
+        storage.render(min);
+    } else if (checkboxMax.checked && !checkboxMin.checked) {
+        storage.render(max);
+    } else if (checkboxRating.checked && !checkboxMin.checked && !checkboxMax.checked) {
+        storage.render(ratingReview);
+    } else if (val1) {
+        let price = Price(data, val1);
+        storage.render(price);
+    } else {
+        storage.render(data);
+    }
+};

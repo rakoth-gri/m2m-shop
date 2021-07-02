@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> MAIN </title>
-    <link rel="stylesheet" type="text/css" href="./main/style.css">
+    <link rel="stylesheet" type="text/css" href="./main/main.css">
     <link rel="stylesheet" type="text/css" href="./fonts/fonts.css">
     <link rel="shortcut icon" href="/icons/router.svg" type="image/x-icon">
 </head>
@@ -19,21 +19,28 @@
     <form class="form">
         <fieldset>
             <legend> Фильтр </legend>
+            <label>               
+                <select name="type" id="equipment">
+                    <option value="all"> Вcе типы </option>
+                    <option value="модем"> Модем </option>
+                    <option value="роутер"> Роутер </option>
+                    <option value="Блок питания"> Блок питания </option>                    
+                </select>
+            </label>
             <label> <input type="checkbox" class="min"> По наибольшей цене </label>
             <label> <input type="checkbox" class="max"> По наименьшей цене </label>
             <label> <input type="checkbox" class="Rating"> По рейтингу </label>
-            <label class="priceVal"> <input type="number" class="priceInp" placeholder="цена, в руб." min="0"  max="100000" step="50"> </label>
+            <label class="priceVal"> <input type="number" class="priceInp" placeholder="цена, в руб." min="0"  max="100000" step="100"> </label>
             <label class="priceVal"> <input type="range" class="priceRange" min="0" max="100000" step="50" value="0"> <span class="range-wrap"> </span> 
             </label>
-            <button id="start">СТАРТ</button>
-
+            <button id="start"> ЗАПУСК </button>
         </fieldset>
     </form>
 
 
     <div class="root"> </div>
 
-    <script type="module" src="./main/localstorage.js"></script>
+    <script type="module" src="./main/main.js"></script>
 
 </body>
 

@@ -1,28 +1,8 @@
 // ************ APPLICATION на ES6 - КЛАССЫ ******************
 
-import { data2 } from "../data/data.js";
+import { data2, cartPage, cartSum, root, inputPrice, inputRange, rangeWrap, select, button, checkboxMin, checkboxMax, checkboxRating } from "../constant/constants.js";
 import { template_ID } from "../utils/template_ID.js";
-import { Max, Min, Price, rangeValue, RatingReview } from "../utils/filter.js";
-
-const root = document.querySelector('.root'),
-    cartPage = document.querySelector('.cartpage'),
-    cartSum = document.querySelector('.cartSum'),
-    checkboxMin = document.querySelector('.min'),
-    checkboxMax = document.querySelector('.max'),
-    checkboxRating = document.querySelector('.Rating'),
-    inputPrice = document.querySelector('.priceInp'),
-    inputRange = document.querySelector('.priceRange'),
-    rangeWrap = document.querySelector('.range-wrap'),
-    button = document.querySelector('#start');
-
-let data3 = Min(data2);
-// data отфильтрована по убыванию 
-
-let data4 = Max(data2);
-// data отфильтрована по возрастанию
-
-let data5 = RatingReview(data2);
-// data отфильтрована по рейтингу
+import { rangeValue, Type, filter } from "../utils/filter.js";
 
 
 class Storage {
@@ -93,7 +73,7 @@ class Storage {
             let card = `
             <div class="card">
                 <div class="model"> ${i.model}</div>
-                <a href='../template/template.html' alt="good-link"  ><img class="pict" src="${i.pict}" data-id="${key}"></img></a>                
+                <a href='./template.html' alt="good-link"  ><img class="pict" src="${i.pict}" data-id="${key}"></img></a>                
                 <div class="price"> <span class="usd">${i.price.toLocaleString()}</span> &#8381; </div>
                 <div class="controll"> <span class="plus" data-id="${key}"> + </span> 
                 <span class="amount" > ${a} </span>  <span class="minus" data-id="${key}"> - </span> 
@@ -129,11 +109,9 @@ class Storage {
     }
 }
 
-const storage = new Storage();
+export const storage = new Storage();
 storage.render(data2);
 
-// фильтрация по возрастанию
-Max(data2, button, checkboxMax);
 
 // DOM-elements-constants
 const plus = document.querySelectorAll('.plus'),
@@ -152,30 +130,24 @@ storage.plusEvent();
 storage.minusEvent();
 
 
-// ********** Функции фильтра **********
+// ********** Фильтр **************
 
 // *******запись значений в inputRange********
 rangeValue(inputPrice, inputRange, rangeWrap);
 
-
-// *****основная функция фильтра*************
 button.addEventListener('click', function(e) {
-
     e.preventDefault();
-    let val1 = inputPrice.value;
+    let val1 = inputPrice.value,
+        val2 = select.value;
 
-    if (checkboxMin.checked && !checkboxMax.checked) {
-        storage.render(data3);
-    } else if (checkboxMax.checked && !checkboxMin.checked) {
-        storage.render(data4);
-    } else if (checkboxRating.checked && !checkboxMin.checked && !checkboxMax.checked) {
-        storage.render(data5);
-    } else if (val1) {
-        let price = Price(data2, val1);
-        storage.render(price);
+    if (val2 != "all") {
+        let data = Type(data2, val2);
+        storage.render(data);
+        filter(val1, data);
+
     } else {
         storage.render(data2);
+        filter(val1, data2);
     }
-});
 
-//
+});

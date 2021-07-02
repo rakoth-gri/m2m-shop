@@ -1,3 +1,16 @@
+export const root = document.querySelector('.root');
+export const cartPage = document.querySelector('.cartpage');
+export const cartSum = document.querySelector('.cartSum');
+export const checkboxMin = document.querySelector('.min');
+export const checkboxMax = document.querySelector('.max');
+export const checkboxRating = document.querySelector('.Rating');
+export const inputPrice = document.querySelector('.priceInp');
+export const inputRange = document.querySelector('.priceRange');
+export const rangeWrap = document.querySelector('.range-wrap');
+export const select = document.querySelector('#equipment');
+export const button = document.querySelector('#start');
+
+
 export const data = {
     'ID_12': {
         model: "router RX 44444444",
@@ -81,7 +94,7 @@ export const data2 = {
     },
     ID_20: {
         "ratingReview": 4.2,
-        "model": "4G-коммуникатор iRZ ATM41.А/iRZ ATM41.B",
+        "model": "4G-модем iRZ ATM41.А/iRZ ATM41.B",
         "store": 100,
         "pict": "https://www.radiofid.ru/upload/iblock/a5f/%D0%90%D0%A2%D0%9C31_01.png",
         "price": 9550,
@@ -91,7 +104,7 @@ export const data2 = {
     },
     ID_22: {
         "ratingReview": 4.5,
-        "model": "3G Роутер iRZ RU21w",
+        "model": "3G роутер iRZ RU21w",
         "store": 100,
         "pict": "https://www.radiofid.ru/upload/iblock/0b8/r21_1.png",
         "price": 13890,
@@ -102,7 +115,7 @@ export const data2 = {
     },
     ID_24: {
         "ratingReview": 4.2,
-        "model": "3G Роутер iRZ RU41",
+        "model": "3G роутер iRZ RU41",
         "store": 120,
         "pict": "https://www.radiofid.ru/upload/iblock/3cf/7-1.jpg",
         "price": 19900,
@@ -112,7 +125,7 @@ export const data2 = {
     },
     ID_26: {
         "ratingReview": 4.8,
-        "model": " 4G Роутер iRZ RL22w c WI-FI",
+        "model": " 4G роутер iRZ RL22w c WI-FI",
         "store": 200,
         "pict": "https://www.radiofid.ru/upload/iblock/b90/RL22w_03.png",
         "price": 17700,
