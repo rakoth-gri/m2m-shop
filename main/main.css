@@ -1,4 +1,5 @@
-@import 'main_media.css' screen;
+/* @import 'main_media.css' screen; */
+
 
 /********** DEFAULT ***************/
 
@@ -57,7 +58,7 @@
     margin-bottom: 5%
 }
 
-.form fieldset input,
+.form input,
 #equipment {
     margin: 0 2%;
     border: 1px solid rgb(177, 177, 170);
@@ -103,6 +104,7 @@ span.range-wrap {
     box-shadow: 2px 5px 5px rgb(214, 169, 169);
     transition: 0.4s all;
     border-radius: 10px;
+    width: 60%;
 }
 
 #start:hover {
@@ -206,6 +208,8 @@ span.cartSum {
     border: 1px solid rgb(177, 177, 170);
     box-shadow: 2px 5px 5px rgb(214, 169, 169);
     margin: 0;
+    width: 50%;
+    padding: 3%;
 }
 
 .card .controll .plus,
@@ -296,13 +300,21 @@ span.cartSum {
     .card {
         font-size: 17px;
     }
-    .card .model {
+    .card .model,
+    .card .store {
         width: 100%;
+        font-size: inherit;
+    }
+    .card .price {
+        font-size: 17px;
     }
     .card .pict {
         width: 90%;
         margin: 0px;
         object-fit: contain;
+    }
+    .card span {
+        font-size: 17px;
     }
     .card .controll .plus:hover,
     .card .controll .minus:hover {
@@ -336,7 +348,6 @@ span.cartSum {
     /* Button */
     #start {
         font-size: 17px;
-        width: 60%;
     }
     /************ Корзинка *************/
     .cartpage {
@@ -371,7 +382,7 @@ span.cartSum {
         object-fit: contain;
     }
     .price .usd {
-        font-size: 17px;
+        font-size: 20px;
     }
     .price span,
     .controll span {
@@ -395,13 +406,15 @@ span.cartSum {
         width: 65%;
         margin-left: 2%;
     }
+    .form .priceInp,
+    #equipment {
+        width: 65%;
+        font-size: 17px;
+        padding: 1%
+    }
     span.range-wrap {
         margin-left: 1px;
         font-size: inherit;
-    }
-    /* Button */
-    #start {
-        width: 65%;
     }
     /*************** Корзинка ***************/
     .cartpage {
@@ -480,12 +493,14 @@ span.cartSum {
     }
     .form .priceInp,
     #equipment {
-        font-size: 18px
+        font-size: 18px;
+        width: 65%;
+        font-size: 17px;
+        padding: 1%;
     }
     /************** Button ***************/
     #start {
         font-size: 18px;
-        width: 65%;
     }
     /************* Корзинка ******************/
     .cartpage {
@@ -574,10 +589,16 @@ span.cartSum {
         margin-left: 1px;
         font-size: 16.5px;
     }
+    #equipment,
+    .priceInp {
+        font-size: 18px;
+        width: 65%;
+        font-size: 17px;
+        padding: 1%;
+    }
     /************* Button **************/
     #start {
         font-size: 18px;
-        width: 60%;
     }
     /************** Корзинка *************/
     .cartpage {
