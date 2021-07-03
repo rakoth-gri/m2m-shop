@@ -1,249 +1,3 @@
-@import 'main_media.css' screen;
-
-/********** DEFAULT ***************/
-
-* {
-    box-sizing: border-box;
-    font-size: 20px;
-    font-family: 'ROBOTO';
-    outline: none;
-}
-
-
-/********** SCROLL BAR CHROME ***************/
-
-::-webkit-scrollbar {
-    width: 15px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: rgb(214, 169, 169);
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: rgb(218, 61, 61);
-}
-
-::-webkit-scrollbar-track {
-    background-color: rgb(177, 177, 170);
-}
-
-
-/*************** Компонент фильтра **************/
-
-.form {
-    width: 20%;
-    margin-top: 10px;
-    float: left;
-    text-align: center;
-}
-
-.form fieldset {
-    border: 1px solid rgb(177, 177, 170);
-    border-radius: 4%;
-    box-shadow: 2px 5px 9px rgb(214, 169, 169);
-}
-
-.form legend {
-    color: rgb(218, 61, 61);
-    margin: 0 2%;
-}
-
-.form fieldset label {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 5%
-}
-
-.form fieldset input,
-#equipment {
-    margin: 0 2%;
-    border: 1px solid rgb(177, 177, 170);
-    border-radius: 4%;
-    box-shadow: 2px 5px 5px rgb(214, 169, 169);
-    outline: none
-}
-
-.form .priceInp::placeholder {
-    padding: 3%;
-    transition: 0.6s all;
-    color: rgba(0, 0, 0, .6)
-}
-
-.form .priceInp:focus::placeholder {
-    opacity: .1;
-    transform: scale(0);
-}
-
-.form .priceRange {
-    width: 50%;
-    background-color: none;
-    box-shadow: none
-}
-
-span.range-wrap {
-    width: 40%;
-    margin-left: 3%;
-    text-align: left;
-    color: rgb(218, 61, 61)
-}
-
-
-/***************** Button *******************/
-
-#start {
-    margin: 3% auto;
-    display: block;
-    width: 35%;
-    outline: none;
-    border: none;
-    background-color: rgb(214, 169, 169);
-    box-shadow: 2px 5px 5px rgb(214, 169, 169);
-    transition: 0.4s all;
-    border-radius: 10px;
-}
-
-#start:hover {
-    transform: scale(1.2);
-    color: rgb(218, 61, 61);
-    background-color: rgb(224, 218, 218);
-}
-
-
-/********** корзина *******************/
-
-.cartpage {
-    width: 6%;
-    position: absolute;
-    right: 1%;
-    top: 2%;
-    text-align: center;
-    border: 1px solid #ffb;
-    height: auto;
-    border-radius: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    text-decoration: none;
-}
-
-.cartpage__active {
-    box-shadow: 3px 3px 7px #b82020;
-}
-
-img.cart {
-    width: 32%;
-    margin: auto;
-    vertical-align: middle;
-    transform: 0.4s all;
-}
-
-img.cart:hover {
-    transform: scale(1.5) rotateZ(20deg);
-}
-
-span.cartSum {
-    color: #b82020;
-    font-size: 22px
-}
-
-
-/******** компонент карточек *****************/
-
-.root {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 32%);
-    grid-gap: 2%;
-    justify-items: center;
-    margin: 100px 20px;
-    width: 75%;
-    grid-auto-rows: auto;
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 85%;
-    padding: 2%;
-    border: 1px;
-    border: 2px solid #ffd;
-    border-radius: 2%;
-    box-shadow: 2px 5px 5px rgb(214, 169, 169);
-}
-
-.card .model {
-    background-color: #ffd;
-    margin: auto;
-    text-align: center;
-}
-
-.card a {
-    text-align: center;
-}
-
-.card .pict {
-    width: 90%;
-    object-fit: contain;
-    transition: 0.4s transform;
-}
-
-.card .pict:hover {
-    transform: rotateZ(5deg) scale(1.1);
-}
-
-.settings {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.card .controll,
-.card .price {
-    text-align: center;
-    border: 1px solid rgb(177, 177, 170);
-    box-shadow: 2px 5px 5px rgb(214, 169, 169);
-    margin: 0;
-}
-
-.card .controll .plus,
-.card .controll .minus {
-    width: 20%;
-    display: inline-block;
-    font-size: 20px;
-    transition: 0.4s all;
-    cursor: pointer;
-}
-
-.card .controll .plus:hover,
-.card .controll .minus:hover {
-    transform: scale(1.8);
-    color: rgb(218, 61, 61);
-}
-
-.card .controll .amount {
-    width: 48%;
-    display: inline-block;
-    color: rgb(69, 133, 228)
-}
-
-.card .store {
-    width: 100%;
-    margin: 2% auto;
-    text-align: center;
-    padding: 1%;
-    border-radius: 3px;
-    box-shadow: 2px 5px 5px rgb(214, 169, 169);
-}
-
-.card .store span {
-    font-weight: 500;
-    color: rgb(218, 61, 61);
-}
-
-
 /************* media-запросы ***********************/
 
 @media (min-width: 1200px) {
@@ -251,30 +5,73 @@ span.cartSum {
     .root {
         width: 80%;
     }
+    .card {
+        width: 83%;
+    }
+    .card .pict {
+        width: 95%;
+        margin: 5px auto;
+    }
     .card .pict:hover {
         transform: rotateZ(5deg) scale(1.1);
+    }
+    .card .model {
+        width: 95%;
+        font-size: 18px;
+    }
+    .card .controll,
+    .card .price {
+        width: 45%;
+        margin: 0 1.8%;
+        font-size: 18px;
     }
     .card .controll .plus:hover,
     .card .controll .minus:hover {
         transform: scale(1.6);
     }
-    .card .store span {
-        color: rgb(218, 61, 61);
+    .card .controll .amount {
+        font-size: 18px;
+        width: 45%;
     }
+    .card .store span {
+        font-weight: 600;
+        color: rgb(218, 61, 61);
+        font-size: 18px;
+    }
+    /******* Корзина *****************/
+    .cartpage {
+        width: 6%;
+    }
+    img.cart {
+        width: 40%;
+    }
+    /******* Фильтр *************/
     .form label {
         font-size: 18px
     }
     .form fieldset {
         padding: 5px 0
     }
+    /* input и select общие */
+    .form fieldset input,
+    #equipment {
+        margin-right: 2%;
+        border: 1px solid rgb(177, 177, 170);
+        border-radius: 4%;
+        box-shadow: 2px 5px 5px rgb(214, 169, 169);
+        outline: none
+    }
+    /* input Number и select */
     .form .priceInp,
     #equipment {
         width: 65%;
+        margin-left: 2%;
         font-size: 18px
     }
     .form .priceInp::placeholder {
         font-size: 18px
     }
+    /* input Range */
     .form .priceRange {
         width: 60%;
     }
@@ -288,26 +85,44 @@ span.cartSum {
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
-    /********** блок карточек **************/
+    /* блок карточек */
     .root {
         width: 78%;
-        margin: 60px auto 10px;
     }
     .card {
+        width: 85%;
         font-size: 17px;
     }
     .card .model {
-        width: 100%;
+        width: 95%;
+        font-size: inherit;
     }
-    .card .pict {
-        width: 90%;
-        margin: 0px;
-        object-fit: contain;
+    .card .controll,
+    .card .price {
+        width: 45%;
+        margin: 0 1.8%;
+        font-size: 17px;
+    }
+    .price .usd {
+        font-size: 17px;
     }
     .card .controll .plus:hover,
     .card .controll .minus:hover {
         transform: scale(1.5);
     }
+    .card .controll .amount {
+        font-size: inherit;
+        width: 45%;
+    }
+    .card .store {
+        font-size: inherit;
+    }
+    .card .store span {
+        font-weight: 500;
+        color: rgb(218, 61, 61);
+        font-size: 17px;
+    }
+    /******* Фильтр *************/
     .form {
         width: 22%;
     }
@@ -317,15 +132,26 @@ span.cartSum {
     .form fieldset {
         padding: 5px 0
     }
+    /* input и select общие */
+    .form fieldset input,
+    #equipment {
+        margin-right: 2%;
+        border: 1px solid rgb(177, 177, 170);
+        border-radius: 4%;
+        box-shadow: 2px 5px 5px rgb(214, 169, 169);
+        outline: none
+    }
+    /* input Number и select */
     .form .priceInp,
     #equipment {
-        width: 70%;
+        width: 65%;
+        margin-left: 2%;
         font-size: 17px
     }
     .form .priceInp::placeholder {
         font-size: 17px
     }
-    /************ input Range ***************/
+    /* input Range */
     .form .priceRange {
         width: 60%;
     }
@@ -338,77 +164,12 @@ span.cartSum {
         font-size: 17px;
         width: 60%;
     }
-    /************ Корзинка *************/
+    /* Корзинка */
     .cartpage {
-        width: 8%;
+        width: 6%;
     }
     img.cart {
-        width: 42%;
-        margin: 0 5px;
-    }
-    img.cart:hover {
-        transform: scale(1.5) rotateZ(20deg);
-    }
-    span.cartSum {
-        color: #b82020;
-        font-size: 20px
-    }
-}
-
-@media (min-width: 768px) and (max-width: 991.98px) {
-    /************* блок карточек ***************/
-    .root {
-        grid-template-columns: repeat(auto-fit, 48.5%);
-        width: 95%;
-        clear: both;
-    }
-    .card {
-        width: 100%;
-        font-size: 18px;
-    }
-    .card .pict {
-        width: 100%;
-        object-fit: contain;
-    }
-    .price .usd {
-        font-size: 17px;
-    }
-    .price span,
-    .controll span {
-        font-size: 18px;
-    }
-    .card .controll .plus:hover,
-    .card .controll .minus:hover {
-        transform: scale(1.5);
-    }
-    /******* Фильтр *************/
-    .form {
-        width: 45%;
-        margin: 50px auto;
-        float: none;
-        font-size: 20px;
-    }
-    .form fieldset {
-        padding: 5px 0
-    }
-    .form .priceRange {
-        width: 65%;
-        margin-left: 2%;
-    }
-    span.range-wrap {
-        margin-left: 1px;
-        font-size: inherit;
-    }
-    /* Button */
-    #start {
-        width: 65%;
-    }
-    /*************** Корзинка ***************/
-    .cartpage {
-        width: 9%;
-    }
-    img.cart {
-        width: 44%;
+        width: 46%;
         margin: 0 5px;
     }
     img.cart:hover {
@@ -420,22 +181,15 @@ span.cartSum {
     }
 }
 
-@media (min-width: 576px) and (max-width: 767.98px) {
-    /*********** блок карточек ****************/
+@media (min-width: 768px) and (max-width: 991.98px) {
+    /* блок карточек */
     .root {
         width: 95%;
         clear: both;
-        margin: 0px auto;
-        grid-template-columns: repeat(auto-fit, 48%);
-        grid-gap: 2%;
-        justify-items: center;
+        margin-top: 0px;
     }
     .card {
-        width: 100%;
-        font-size: 17px;
-    }
-    .card .pict {
-        width: 100%;
+        width: 95%;
         font-size: 17px;
     }
     .card .model {
@@ -444,6 +198,8 @@ span.cartSum {
     }
     .card .controll,
     .card .price {
+        width: 45%;
+        margin: 0 1.8%;
         font-size: 17px;
     }
     .price .usd {
@@ -470,24 +226,132 @@ span.cartSum {
         width: 45%;
         margin: 50px auto;
         float: none;
-        font-size: 18px;
+        font-size: 20px;
     }
     .form label {
-        font-size: 18px
+        font-size: inherit
     }
     .form fieldset {
         padding: 5px 0
     }
+    /* input и select общие */
+    .form fieldset input,
+    #equipment {
+        margin-right: 2%;
+        border: 1px solid rgb(177, 177, 170);
+        border-radius: 4%;
+        box-shadow: 2px 5px 5px rgb(214, 169, 169);
+        outline: none
+    }
+    /* input Number и select */
     .form .priceInp,
     #equipment {
-        font-size: 18px
-    }
-    /************** Button ***************/
-    #start {
-        font-size: 18px;
         width: 65%;
+        margin-left: 2%;
+        font-size: inherit
     }
-    /************* Корзинка ******************/
+    .form .priceInp::placeholder {
+        font-size: inherit
+    }
+    /* input Range */
+    .form .priceRange {
+        width: 60%;
+    }
+    span.range-wrap {
+        margin-left: 1px;
+        font-size: inherit;
+    }
+    /* Button */
+    #start {
+        font-size: inherit;
+        width: 60%;
+    }
+    /* Корзинка */
+    .cartpage {
+        width: 9%;
+    }
+    img.cart {
+        width: 44%;
+        margin: 0 5px;
+    }
+    img.cart:hover {
+        transform: scale(1.5) rotateZ(20deg);
+    }
+    span.cartSum {
+        color: #b82020;
+        font-size: 22px
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    /* блок карточек */
+    .root {
+        width: 95%;
+        clear: both;
+        margin: 0px auto;
+        grid-template-columns: repeat(auto-fit, 48%);
+        grid-gap: 2%;
+        justify-items: center;
+    }
+    .card {
+        width: 100%;
+        font-size: 17px;
+    }
+    .card .model {
+        width: 95%;
+        font-size: inherit;
+    }
+    .card .controll,
+    .card .price {
+        width: 45%;
+        margin: 0 1.8%;
+        font-size: 17px;
+    }
+    .price .usd {
+        font-size: 17px;
+    }
+    .card .controll .plus:hover,
+    .card .controll .minus:hover {
+        transform: scale(1.5);
+    }
+    .card .controll .amount {
+        font-size: inherit;
+        width: 45%;
+    }
+    .card .store {
+        font-size: inherit;
+    }
+    .card .store span {
+        font-weight: 500;
+        color: rgb(218, 61, 61);
+        font-size: 17px;
+    }
+    /******* Фильтр *************/
+    .form {
+        width: 45%;
+        margin: 50px auto;
+        float: none;
+        font-size: 20px;
+    }
+    .form label {
+        font-size: inherit
+    }
+    .form fieldset {
+        padding: 5px 0
+    }
+    /* input и select общие */
+    .form .priceInp,
+    #equipment {
+        width: 65%;
+        margin-left: 2%;
+        font-size: inherit
+    }
+    /* Button */
+    #start {
+        font-size: inherit;
+        width: 60%;
+    }
+    /* Корзинка */
     .cartpage {
         width: 12%;
     }
@@ -505,13 +369,13 @@ span.cartSum {
 }
 
 @media screen and (max-width: 575.98px) {
-    /************ блок карточек ****************/
+    /* блок карточек */
     .root {
         width: 95%;
         clear: both;
         margin: 0px auto;
         grid-template-columns: repeat(auto-fit, 80%);
-        grid-gap: 0.5%;
+        grid-gap: 1%;
         justify-content: center;
     }
     .card {
@@ -523,12 +387,10 @@ span.cartSum {
         width: 95%;
         font-size: inherit;
     }
-    .card .pict {
-        width: 100%;
-        font-size: 17px;
-    }
     .card .controll,
     .card .price {
+        width: 45%;
+        margin: 0 1.8%;
         font-size: 17px;
     }
     .price .usd {
@@ -563,6 +425,22 @@ span.cartSum {
     .form fieldset {
         padding: 5px 0
     }
+    /* input и select общие */
+    .form fieldset input,
+    #equipment {
+        margin-right: 2%;
+        border: 1px solid rgb(177, 177, 170);
+        border-radius: 4%;
+        box-shadow: 2px 5px 5px rgb(214, 169, 169);
+        outline: none
+    }
+    /* input Number и select */
+    .form .priceInp,
+    #equipment {
+        width: 65%;
+        margin-left: 2%;
+        font-size: inherit
+    }
     .form .priceInp::placeholder {
         font-size: inherit
     }
@@ -574,18 +452,18 @@ span.cartSum {
         margin-left: 1px;
         font-size: 16.5px;
     }
-    /************* Button **************/
+    /* Button */
     #start {
         font-size: 18px;
         width: 60%;
     }
-    /************** Корзинка *************/
+    /* Корзинка */
     .cartpage {
-        width: 11%;
+        width: 17%;
         right: 2%
     }
     img.cart {
-        width: 48%;
+        width: 42%;
         margin: 0 5px;
     }
     img.cart:hover {

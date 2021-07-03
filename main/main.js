@@ -72,11 +72,15 @@ class Storage {
 
             let card = `
             <div class="card">
-                <div class="model"> ${i.model}</div>
+                <span class="model"> ${i.model}</span>
                 <a href='./template.html' alt="good-link"  ><img class="pict" src="${i.pict}" data-id="${key}"></img></a>                
-                <div class="price"> <span class="usd">${i.price.toLocaleString()}</span> &#8381; </div>
-                <div class="controll"> <span class="plus" data-id="${key}"> + </span> 
-                <span class="amount" > ${a} </span>  <span class="minus" data-id="${key}"> - </span> 
+                <div class="settings">
+                    <div class="price"> <span class="usd">${i.price.toLocaleString()}</span> &#8381; </div>
+                    <div class="controll"> 
+                        <span class="plus" data-id="${key}"> + </span>
+                        <span class="amount" > ${a} </span>  
+                        <span class="minus" data-id="${key}"> - </span>  
+                    </div>                
                 </div>
                 <div class="store"> В наличии: <span> ${i.store} </span> </div>                
             </div>`;

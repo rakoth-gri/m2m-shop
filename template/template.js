@@ -24,8 +24,8 @@ class Template {
         <div class="good_desc">
             <span class="model"> ${i.model}</span>
             <div class="store"> На складе: <span>${i.store}</span> шт. </div>
-            <img alt="picture" src="${i.pict}" class="pict">
             <div class="price"> Цена с НДС: <span>${i.price.toLocaleString()}</span> &#8381; </div>
+            <img alt="picture" src="${i.pict}" class="pict">           
             <p class="desc">${i.desc1} </p>
             <p class="desc">${i.desc2} </p>
             <h2 class="title"> Основные возможности </h2>            
