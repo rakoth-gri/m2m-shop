@@ -553,7 +553,7 @@ span.cartSum {
     /******* Фильтр *************/
     .form {
         width: 73%;
-        margin: 50px auto;
+        margin: 70px auto;
         float: none;
         font-size: 18px;
     }
@@ -581,11 +581,11 @@ span.cartSum {
     }
     /************** Корзинка *************/
     .cartpage {
-        width: 11%;
+        width: 15%;
         right: 2%
     }
     img.cart {
-        width: 48%;
+        width: 40%;
         margin: 0 5px;
     }
     img.cart:hover {
@@ -593,6 +593,6 @@ span.cartSum {
     }
     span.cartSum {
         color: #b82020;
-        font-size: 19px
+        font-size: 18px
     }
 }

@@ -18,15 +18,18 @@ class Cart {
 
     render(data) {
 
-        let result = this.getLS();
+        let result = this.getLS(),
+            second = '',
+            link = `<a href='./index.html' alt="main" class="main"> <img  src="./icons/back.png"></img> ГЛАВНАЯ </a>`;
 
-        root.innerHTML = `
-            <a href='./index.html' alt="main" class="main"> <img  src="./icons/back.png"></img> ГЛАВНАЯ </a>            
-            <div class="model"> Наименование изделия </div>
-            <div class="price"> Цена, в руб. / шт. </div>
-            <div class="store"> Кол-во </div>
-            <div class="summOfModel"> Всего, руб. / шт. </div>
-            <div class="action"> Действие </div>`;
+        const first = `
+            <tr>            
+                <th class="model"> Наименование изделия </th>
+                <th class="price"> Цена, в руб. / шт. </th>
+                <th class="store"> Кол-во </th>
+                <th class="summOfModel"> Всего, руб. / шт. </th>
+                <th class="action"> Действие </th>
+            </tr>`;
 
         for (let key in result) {
             if (result.hasOwnProperty(key)) {
@@ -34,17 +37,29 @@ class Cart {
                     model = data[key].model,
                     price = data[key].price;
 
-                root.innerHTML += `                    
-                    <div class="model">${model}</div>
-                    <div class="price"><span>${price.toLocaleString()}</span> &#8381; </div>
-                    <div class="store">${store}</div>
-                    <div class="summOfModel"><span> ${(price*store).toLocaleString()} </span> &#8381; </div>
-                    <button class="del" data-del="${key}"> Удалить </button>                     
+                second += `
+                <tr>                    
+                    <td class="model">${model}</td>
+                    <td class="price"><span>${price.toLocaleString()}</span> &#8381; </td>
+                    <td class="store">${store}</td>
+                    <td class="summOfModel"><span> ${(price*store).toLocaleString()} </span> &#8381; </td>
+                    <td> <button class="del" data-del="${key}"> Удалить </button> </td>
+                </tr>                        
                 `;
             }
         }
 
-        root.innerHTML += "<div class='itogo'>ИТОГО:</div><div class='all'></div>";
+        root.innerHTML = `
+        ${link}
+        <table class="table">
+            ${first}
+            ${second}
+        </table>
+        <div class="check">
+            <div class='itogo'>ИТОГО:</div>
+            <div class='all'></div>
+        </div>
+        `;
 
         let all = document.querySelector('.all'),
             del = document.querySelectorAll('.del'),
@@ -77,76 +92,3 @@ class Cart {
 
 const cart = new Cart();
 cart.render(data2);
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ************** Аналогично через функцию и событие "storage" *****************
-
-// window.addEventListener('storage', RenderLocal);
-
-// function RenderLocal() {
-//     let memory = JSON.parse(localStorage.getItem('memory'));
-//     const out = document.querySelector('.out');
-
-//     out.innerHTML = `<div class="model"> Наименование изделия </div>
-//     <div class="price"> Цена, USD / шт. </div>
-//     <div class="store"> Кол-во </div>
-//     <div class="summOfModel"> Всего, USD / шт. </div>
-//     <div class="action"> Действие </div>`;
-
-
-//     for (let key in memory) {
-//         if (memory.hasOwnProperty(key)) {
-//             let store = memory[key],
-//                 model = data[key].model,
-//                 price = data[key].price;
-//             out.innerHTML += `                    
-//                 <div class="model">${model}</div>
-//                 <div class="price"><span>${price}</span> USD </div>
-//                 <div class="store">${store}</div>
-//                 <div class="summOfModel"><span>${(price*store).toFixed(2)}</span> </div>
-//                 <button class="delet" data-del="${key}"> Удалить </button>                     
-//             `;
-//         }
-//     }
-
-//     out.innerHTML += "<div class='itogo'>ИТОГО:</div><div class='all'></div>";
-
-//     const all = document.querySelector('.all'),
-//         delet = document.querySelectorAll('.delet'),
-//         spanSumm = document.querySelectorAll('.summOfModel span');
-
-//     for (let i of delet) {
-//         i.addEventListener('click', () => {
-//             let data_attr = i.dataset.del;
-//             delete memory[data_attr];
-//             localStorage.setItem('memory', JSON.stringify(memory));
-//             RenderLocal();
-//         });
-//     }
-
-//     // суммирование товаров
-//     let itogo = 0;
-//     for (let item of spanSumm) {
-//         let a = +item.textContent;
-//         itogo += a;
-//     }
-//     all.textContent = itogo.toFixed(2);
-// }
-
-// // сохранение после перезагрузки
-// lsVisual();
-
-// function lsVisual() {
-//     RenderLocal();
-// }
