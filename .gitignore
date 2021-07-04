@@ -2,5 +2,5 @@ jsconfig.json
 .jshintrc
 GIT.txt
 
-utils/template_ID.js
-utils/filter.js
+utils/localstorage_fetch.js
+utils/Storage.js
