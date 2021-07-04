@@ -39,7 +39,7 @@ class Cart {
 
                 second += `
                 <tr>                    
-                    <td class="model">${model}</td>
+                    <td class="model">${model} </td>
                     <td class="price"><span>${price.toLocaleString()}</span> &#8381; </td>
                     <td class="store">${store}</td>
                     <td class="summOfModel"><span> ${(price*store).toLocaleString()} </span> &#8381; </td>

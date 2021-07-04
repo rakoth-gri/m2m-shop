@@ -1,3 +1,5 @@
 jsconfig.json
 .jshintrc
 GIT.txt
+./utils/localstorage_fetch.js
+./utils/Storage.js

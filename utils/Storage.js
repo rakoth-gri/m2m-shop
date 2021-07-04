@@ -1,9 +1,3 @@
-// ************ APPLICATION на ES6 - КЛАССЫ ******************
-
-import { data2, cartPage, cartSum, root, inputPrice, inputRange, rangeWrap, select, button } from "../constant/constants.js";
-import { template_ID } from "../utils/template_ID.js";
-import { rangeValue, Type, filter } from "../utils/filter.js";
-
 class Storage {
 
     constructor() {
@@ -20,7 +14,7 @@ class Storage {
         return {};
     }
 
-    setInLS(attr, ind, storeVal, amount) {
+    setInLS(attr, ind, storeVal) {
 
         let result = this.getLS();
 
@@ -35,7 +29,7 @@ class Storage {
         this.recordLS(result);
     }
 
-    deleteFromLS(attr, ind, amount) {
+    deleteFromLS(attr, ind) {
 
         let result = this.getLS();
 
@@ -86,39 +80,23 @@ class Storage {
             str += card;
         }
         root.innerHTML = str;
-
-        // DOM-elements-constants
-        const plus = document.querySelectorAll('.plus'),
-            minus = document.querySelectorAll('.minus'),
-            amount = document.querySelectorAll('.amount'),
-            store = document.querySelectorAll(".store span"),
-            pict = document.querySelectorAll(".pict");
-
-
-        template_ID(pict);
-
-        // событие плюс
-        storage.plusEvent(plus, store, amount);
-
-        // событие минус
-        storage.minusEvent(minus, amount);
     }
 
-    plusEvent(plus, store, amount) {
+    plusEvent() {
         plus.forEach((el, ind) => {
             let storeVal = +store[ind].innerHTML,
                 attr = el.getAttribute('data-id');
             el.addEventListener('click', () => {
-                this.setInLS(attr, ind, storeVal, amount);
+                this.setInLS(attr, ind, storeVal);
             });
         });
     }
 
-    minusEvent(minus, amount) {
+    minusEvent() {
         minus.forEach((el, ind) => {
             el.addEventListener('click', () => {
                 let attr = el.getAttribute('data-id');
-                this.deleteFromLS(attr, ind, amount);
+                this.deleteFromLS(attr, ind);
             });
         });
     }
@@ -131,23 +109,19 @@ class Storage {
 export const storage = new Storage();
 storage.render(data2);
 
-// ************** Фильтр *******************
 
-rangeValue(inputPrice, inputRange, rangeWrap);
+// DOM-elements-constants
+const plus = document.querySelectorAll('.plus'),
+    minus = document.querySelectorAll('.minus'),
+    amount = document.querySelectorAll('.amount'),
+    store = document.querySelectorAll(".store span"),
+    pict = document.querySelectorAll(".pict");
 
-button.addEventListener('click', function(e) {
-    e.preventDefault();
-    let val1 = inputPrice.value,
-        val2 = select.value;
 
-    if (val2 != "all") {
-        let data = Type(data2, val2);
-        storage.render(data);
-        filter(val1, data);
+template_ID(pict);
 
-    } else {
-        storage.render(data2);
-        filter(val1, data2);
-    }
+// событие плюс
+storage.plusEvent();
 
-});
+// событие минус
+storage.minusEvent();
