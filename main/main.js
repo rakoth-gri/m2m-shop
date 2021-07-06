@@ -3,12 +3,14 @@
 import { data2, cartPage, cartSum, root, inputPrice, inputRange, rangeWrap, select, button } from "../constant/constants.js";
 import { template_ID } from "../utils/template_ID.js";
 import { rangeValue, Type, filter } from "../utils/filter.js";
+import { chosenProducts } from "../utils/chosenProducts.js";
 
 class Storage {
 
     constructor() {
         this.LSname = "storage";
         this.Cart = 'cartpage__active';
+        this.chosenGoods = 'chosenGoods';
     }
 
     getLS() {
@@ -20,7 +22,7 @@ class Storage {
         return {};
     }
 
-    setInLS(attr, ind, storeVal, amount) {
+    setInLS(attr, ind, storeVal, amount, store, storeID) {
 
         let result = this.getLS();
 
@@ -30,12 +32,20 @@ class Storage {
 
         amount[ind].textContent = result[attr];
 
+
+        let Products = chosenProducts();
+
+        store[ind].textContent = data2[attr].store - result[attr];
+
+        Products[storeID] = +store[ind].textContent;
+
+
         cartSum.textContent = Object.values(result).reduce((acc, i) => acc += i, 0);
 
-        this.recordLS(result);
+        this.recordLS(result, Products);
     }
 
-    deleteFromLS(attr, ind, amount) {
+    deleteFromLS(attr, ind, amount, store, storeID) {
 
         let result = this.getLS();
 
@@ -43,18 +53,29 @@ class Storage {
 
         amount[ind].textContent = result[attr];
 
+
+        let Products = chosenProducts();
+
+        store[ind].textContent = data2[attr].store - amount[ind].textContent;
+
+        Products[storeID] = +store[ind].textContent;
+
+
         cartSum.textContent = Object.values(result).reduce((acc, i) => acc += i, 0);
 
         Object.values(result).length ? cartPage.classList.add('cartpage__active') : cartPage.classList.remove('cartpage__active');
 
-        this.recordLS(result);
+        this.recordLS(result, Products);
     }
 
     render(mass) {
 
         let result = this.getLS(),
+            Products = chosenProducts(),
             str = "",
-            a;
+            a,
+            b;
+
 
         Object.values(result).length ? cartPage.classList.add('cartpage__active') : cartPage.classList.remove('cartpage__active');
         // сохранение активного класса корзины при перезагрузке
@@ -64,10 +85,12 @@ class Storage {
 
 
         for (let key in mass) {
+
             let i = mass[key];
 
-            let num = result[key];
-            num ? a = result[key] : a = "";
+            result[key] ? a = result[key] : a = "";
+
+            Products[i.storeid] ? b = Products[i.storeid] : b = i.store;
 
             let card = `
             <div class="card">
@@ -81,7 +104,7 @@ class Storage {
                         <span class="minus" data-id="${key}"> - </span>  
                     </div>                
                 </div>
-                <div class="store"> В наличии: <span> ${i.store} </span> </div>                
+                <div class="store"> В наличии: <span data-storeID="${i.storeid}"> ${b} </span> </div>                
             </div>`;
             str += card;
         }
@@ -98,33 +121,38 @@ class Storage {
         template_ID(pict);
 
         // событие плюс
-        storage.plusEvent(plus, store, amount);
+        this.plusEvent(plus, store, amount);
 
         // событие минус
-        storage.minusEvent(minus, amount);
+        this.minusEvent(minus, amount, store);
+
     }
 
     plusEvent(plus, store, amount) {
         plus.forEach((el, ind) => {
             let storeVal = +store[ind].innerHTML,
-                attr = el.getAttribute('data-id');
+                attr = el.getAttribute('data-id'),
+                storeID = store[ind].dataset.storeid;
+
             el.addEventListener('click', () => {
-                this.setInLS(attr, ind, storeVal, amount);
+                this.setInLS(attr, ind, storeVal, amount, store, storeID);
             });
         });
     }
 
-    minusEvent(minus, amount) {
+    minusEvent(minus, amount, store) {
         minus.forEach((el, ind) => {
             el.addEventListener('click', () => {
-                let attr = el.getAttribute('data-id');
-                this.deleteFromLS(attr, ind, amount);
+                let attr = el.getAttribute('data-id'),
+                    storeID = store[ind].dataset.storeid;
+                this.deleteFromLS(attr, ind, amount, store, storeID);
             });
         });
     }
 
-    recordLS(data) {
+    recordLS(data, chosen) {
         localStorage.setItem(this.LSname, JSON.stringify(data));
+        localStorage.setItem(this.chosenGoods, JSON.stringify(chosen));
     }
 }
 

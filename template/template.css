@@ -35,7 +35,11 @@
     .model {
         font-size: 28px;
         display: block;
-        margin: 20px 0;
+        margin: 28px auto;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: underline;
+        color: rgb(218, 61, 61);
     }
     
     .store,
