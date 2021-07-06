@@ -1,6 +1,9 @@
 jsconfig.json
 .jshintrc
 GIT.txt
+GIT_commands.txt
 
-utils/localstorage_fetch.js
-utils/Storage.js
+/utils
+!utils/filter.js
+!utils/template_ID.js
+!utils/chosenProducts.js
