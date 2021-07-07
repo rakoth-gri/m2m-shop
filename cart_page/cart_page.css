@@ -100,12 +100,13 @@
     
     button.del {
         width: 100%;
-        padding: 4%;
+        padding: 6%;
         background: rgb(218, 61, 61);
         opacity: 0.75;
         outline: none;
         border-radius: 6px;
-        border: none
+        border: none;
+        font-size: 20px;
     }
     
     .del:hover {

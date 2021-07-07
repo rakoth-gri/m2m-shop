@@ -43,7 +43,7 @@ class Cart {
                     <td class="price"><span>${price.toLocaleString()}</span> &#8381; </td>
                     <td class="store">${store}</td>
                     <td class="summOfModel"><span> ${(price*store).toLocaleString()} </span> &#8381; </td>
-                    <td> <button class="del" data-del="${key}"> Удалить </button> </td>
+                    <td> <button class="del" data-del="${key}"> удалить </button> </td>
                 </tr>                        
                 `;
             }

@@ -10,7 +10,6 @@ class Storage {
     constructor() {
         this.LSname = "storage";
         this.Cart = 'cartpage__active';
-        this.chosenGoods = 'chosenGoods';
     }
 
     getLS() {
@@ -153,7 +152,7 @@ class Storage {
 
     recordLS(data, chosen) {
         localStorage.setItem(this.LSname, JSON.stringify(data));
-        localStorage.setItem(this.chosenGoods, JSON.stringify(chosen));
+        localStorage.setItem('chosenGoods', JSON.stringify(chosen));
     }
 }
 

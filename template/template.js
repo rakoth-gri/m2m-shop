@@ -1,4 +1,5 @@
 import { data2 } from '../constant/constants.js';
+import { chosenProducts } from "../utils/chosenProducts.js";
 
 class Template {
 
@@ -16,14 +17,19 @@ class Template {
 
     render(data) {
         let result = this.getLS(),
-            i = data[result];
+            i = data[result],
+            Products = chosenProducts(),
+            c;
+        console.log(Products);
+
+        Products[i.storeid] ? c = Products[i.storeid] : c = i.store;
 
         const root = document.querySelector('.root');
 
         let temp = `
         <div class="good_desc">
             <span class="model"> ${i.model}</span>
-            <div class="store"> На складе: <span>${i.store}</span> шт. </div>
+            <div class="store"> На складе: <span>${c}</span> шт. </div>
             <div class="price"> Цена с НДС: <span>${i.price.toLocaleString()}</span> &#8381; </div>
             <img alt="picture" src="${i.pict}" class="pict">           
             <p class="desc">${i.desc1} </p>

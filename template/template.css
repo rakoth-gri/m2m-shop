@@ -35,11 +35,11 @@
     .model {
         font-size: 24px;
         display: block;
-        margin: 0 auto 28px;
+        margin: 0 auto;
         font-weight: bold;
         text-align: center;
         color: rgb(218, 61, 61);
-        text-shadow: 3px 3px 7px rgba(0, 0, 0, .6)
+        text-shadow: 3px 3px 5px rgba(0, 0, 0, .42)
     }
     
     .store,
@@ -77,12 +77,12 @@
     }
     
     .title {
-        font-size: 28px;
-        color: rgb(218, 61, 61);
+        font-size: 24px;
         margin: 15px 0;
         clear: both;
         text-align: center;
-        text-decoration: underline;
+        color: rgb(218, 61, 61);
+        text-shadow: 3px 3px 5px rgba(0, 0, 0, .42);
     }
     
     .specification {
