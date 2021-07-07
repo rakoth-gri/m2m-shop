@@ -33,19 +33,19 @@
     }
     
     .model {
-        font-size: 28px;
+        font-size: 24px;
         display: block;
-        margin: 28px auto;
+        margin: 0 auto 28px;
         font-weight: bold;
         text-align: center;
-        text-decoration: underline;
         color: rgb(218, 61, 61);
+        text-shadow: 3px 3px 7px rgba(0, 0, 0, .6)
     }
     
     .store,
     .price {
         font-size: 22px;
-        width: 47%;
+        width: 49%;
         display: inline-block;
     }
     

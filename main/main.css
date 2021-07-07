@@ -117,6 +117,8 @@ span.range-wrap {
     border-radius: 10px;
     width: 60%;
     padding: 1.5%;
+    font-weight: 700;
+    color: #ffe;
 }
 
 #start:hover {
@@ -186,6 +188,7 @@ span.cartSum {
     border: 2px solid #ffd;
     border-radius: 2%;
     box-shadow: 2px 5px 5px rgb(214, 169, 169);
+    position: relative;
 }
 
 .card .model {
@@ -195,6 +198,7 @@ span.cartSum {
 }
 
 .card a {
+    display: block;
     text-align: center;
 }
 
@@ -218,6 +222,26 @@ span.cartSum {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+span.rating {
+    color: rgb(218, 61, 61);
+    font-weight: 700;
+    font-size: 22px;
+    position: absolute;
+    right: 0%;
+    bottom: 25%;
+}
+
+span.rating:after {
+    content: '';
+    background: url('../icons/star.svg') no-repeat;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    position: relative;
+    top: 2.5px;
+    left: -5px
 }
 
 .price .usd {
@@ -337,6 +361,15 @@ span.cartSum {
     .card span {
         font-size: 17px;
     }
+    span.rating {
+        font-size: 18.5px;
+        bottom: 27%;
+    }
+    span.rating:after {
+        width: 20px;
+        height: 20px;
+        left: -4px;
+    }
     .card .controll .plus:hover,
     .card .controll .minus:hover {
         transform: scale(1.5);
@@ -404,6 +437,16 @@ span.cartSum {
     }
     .price .usd {
         font-size: 20px;
+    }
+    span.rating {
+        font-size: 20px;
+        bottom: 23%;
+        right: 1%
+    }
+    span.rating:after {
+        width: 20px;
+        height: 20px;
+        left: -4px;
     }
     .price span,
     .controll span {
@@ -482,6 +525,16 @@ span.cartSum {
     }
     .price .usd {
         font-size: 17px;
+    }
+    span.rating {
+        font-size: 18.5px;
+        bottom: 24%;
+        right: 0%
+    }
+    span.rating:after {
+        width: 20px;
+        height: 20px;
+        left: -4px;
     }
     .card .controll .plus:hover,
     .card .controll .minus:hover {
@@ -562,6 +615,11 @@ span.cartSum {
     .card .pict {
         width: 100%;
         font-size: 17px;
+    }
+    span.rating {
+        font-size: 18.5px;
+        bottom: 24%;
+        right: 0%
     }
     .card .controll,
     .card .price {

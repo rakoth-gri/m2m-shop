@@ -95,7 +95,8 @@ class Storage {
             let card = `
             <div class="card">
                 <span class="model"> ${i.model}</span>
-                <a href='./template.html' alt="good-link"  ><img class="pict" src="${i.pict}" data-id="${key}"></img></a>                
+                <a href='./template.html' alt="good-link"  ><img class="pict" src="${i.pict}" data-id="${key}"></img></a>
+                <span class="rating"> ${i.ratingReview} </span>                
                 <div class="settings">
                     <div class="price"> <span class="usd">${i.price.toLocaleString()}</span> &#8381; </div>
                     <div class="controll"> 
