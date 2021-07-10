@@ -169,13 +169,19 @@
         .good_desc {
             width: 96%;
             font-size: 17px;
+            margin: 15px auto;
+            padding: 2%
         }
         .model {
             font-size: 20px;
+            margin: 19px 0;
         }
         .store {
-            font-size: 20px;
+            font-size: 17px;
             width: 50%;
+        }
+        .store span {
+            font-size: 18px;
         }
         .pict {
             width: 36%;
@@ -185,7 +191,7 @@
             font-size: inherit;
         }
         .price span {
-            font-size: 20px;
+            font-size: inherit;
             font-weight: 500;
         }
         .title {
